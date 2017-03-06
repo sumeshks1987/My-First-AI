@@ -6,7 +6,7 @@ timestamp: 2017-03-06T16:13:26.642433418+05:30
 Hello
 * greeting
 
-< Hello World! I mean human
+< Hi there. How may we help you?
 * greeting
 
 Goodbye
