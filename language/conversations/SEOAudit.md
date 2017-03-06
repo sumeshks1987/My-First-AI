@@ -1,22 +1,10 @@
 ---
 title: SEOAudit
-timestamp: 2017-03-06T15:57:41.965586265+05:30
+timestamp: 2017-03-06T16:31:23.784624063+05:30
 ---
 
-Hi
-* greeting
-
-< Hi. How can we help you?
-* greeting
-
 I am looking for SEO Audit
-* request/audit
+* request_audit
 
-< We are glad to know that. Please share your Website URL.
-* request/audit
-
-https://www.example.com
-* response/website
-
-< Thanks
-* thanks
+< We are glad to hear that. Please share your website url for the same.
+* request_audit
