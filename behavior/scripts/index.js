@@ -41,6 +41,17 @@ exports.handle = function handle(client) {
     }
   })
 
+  const handleAudit = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('request_audit')
+      client.done()
+    }
+  })
+
   const handleGoodbye = client.createStep({
     satisfied() {
       return false
@@ -48,16 +59,18 @@ exports.handle = function handle(client) {
 
     prompt() {
       client.addResponse('goodbye')
-     client.done()
+      client.done()
     }
   })
 
   client.runFlow({
     classifications: {
+      request_audit: 'request_audit',
       goodbye: 'goodbye',
       greeting: 'greeting'
     },
     streams: {
+      request_audit: handleAudit,
       goodbye: handleGoodbye,
       greeting: handleGreeting,
       main: 'onboarding',
