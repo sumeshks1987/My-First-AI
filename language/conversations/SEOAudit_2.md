@@ -6,7 +6,7 @@ timestamp: 2017-03-13T11:03:06.519144524+05:30
 Hi
 * greeting
 
-< Hi there. How can we help you? Please choose from these options [Free SEO Audit](option_1), [Call Back](option_2), [Jobs](option_3) or [About Us](option_4)
+< Hi there. How can we help you? Please choose from these options Free SEO Audit, Call Back, Jobs or About Us.
 * provide_options
 
 [Free SEO Audit](option_1)
