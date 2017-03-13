@@ -41,13 +41,13 @@ exports.handle = function handle(client) {
     }
   })
 
-  const handleAudit = client.createStep({
+  const provide_options = client.createStep({
     satisfied() {
       return false
     },
 
     prompt() {
-      client.addResponse('request_audit')
+      client.addResponse('provide_options')
       client.done()
     }
   })
@@ -65,12 +65,12 @@ exports.handle = function handle(client) {
 
   client.runFlow({
     classifications: {
-      request_audit: 'request_audit',
+      request_audit: 'provide_options',
       goodbye: 'goodbye',
       greeting: 'greeting'
     },
     streams: {
-      request_audit: handleAudit,
+      provide_options: handleOptions,
       goodbye: handleGoodbye,
       greeting: handleGreeting,
       main: 'onboarding',
