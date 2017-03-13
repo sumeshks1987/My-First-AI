@@ -36,7 +36,7 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addResponse('provide_options')
+      client.addResponse('greeting')
       client.done()
     }
   })
