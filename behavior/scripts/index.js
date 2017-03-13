@@ -1,23 +1,6 @@
 'use strict'
 
 exports.handle = function handle(client) {
-  const sayHello = client.createStep({
-    satisfied() {
-      return Boolean(client.getConversationState().helloSent)
-    },
-
-    prompt() {
-      client.addResponse('welcome')
-      client.addResponse('provide/documentation', {
-        documentation_link: 'http://docs.init.ai',
-      })
-      client.addResponse('provide/instructions')
-      client.updateConversationState({
-        helloSent: true
-      })
-      client.done()
-    }
-  })
 
   const untrained = client.createStep({
     satisfied() {
@@ -27,17 +10,6 @@ exports.handle = function handle(client) {
     prompt() {
       client.addResponse('apology/untrained')
      client.done()
-    }
-  })
-
-  const handleGreeting = client.createStep({
-    satisfied() {
-      return false
-    },
-
-    prompt() {
-      client.addResponse('provide_options')
-      client.done()
     }
   })
 
@@ -70,11 +42,10 @@ exports.handle = function handle(client) {
       greeting: 'greeting'
     },
     streams: {
-      provide_options: handleOptions,
       goodbye: handleGoodbye,
-      greeting: handleGreeting,
+      provide_options: handleOptions,
       main: 'onboarding',
-      onboarding: [sayHello],
+      onboarding: [handleOptions],
       end: [untrained]
     }
   })
