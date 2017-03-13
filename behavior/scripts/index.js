@@ -41,7 +41,7 @@ exports.handle = function handle(client) {
     }
   })
 
-  const provide_options = client.createStep({
+  const handleOptions = client.createStep({
     satisfied() {
       return false
     },
