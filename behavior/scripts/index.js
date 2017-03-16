@@ -19,7 +19,7 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addResponse('prompt/weather_city')
+      client.addResponse('provide_options)
       client.done()
     },
   })
