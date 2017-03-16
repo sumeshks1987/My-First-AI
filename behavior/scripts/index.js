@@ -16,11 +16,11 @@ exports.handle = function handle(client) {
     satisfied() {
       console.log('test')
       console.log(client)
-      return Boolean(client.getConversationState().optionSelected)
+      return false
     },
 
     extractInfo() {
-     const option = client.getFirstEntityWithRole(client.getMessagePart(), 'option_selected')
+     const option = "option_1"
       if (option) {
         client.updateConversationState({
           optionSelected: option,
