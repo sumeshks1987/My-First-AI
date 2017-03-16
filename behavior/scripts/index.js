@@ -2,62 +2,33 @@
 
 exports.handle = function handle(client) {
 
-  const untrained = client.createStep({
+  const collectOptions = client.createStep({
     satisfied() {
-      return false
+      console.log('Test')
+      return Boolean(client.getConversationState().weatherCity)
+    },
+
+    extractInfo() {
+     const city = client.getFirstEntityWithRole(client.getMessagePart(), 'city')
+      if (city) {
+        client.updateConversationState({
+          weatherCity: city,
+        })
+        console.log('User wants the weather in:', city.value)
+      }
     },
 
     prompt() {
-      client.addResponse('apology/untrained')
-     client.done()
-    }
-  })
-
-  const greeting = client.createStep({
-    satisfied() {
-      return false
-    },
-
-    prompt() {
-      client.addResponse('provide_options')
+      client.addResponse('prompt/weather_city')
       client.done()
-    }
-  })
-
-  const handleOptions = client.createStep({
-    satisfied() {
-      return false
     },
-
-    prompt() {
-      client.addResponse('provide_options')
-      client.done()
-    }
-  })
-
-  const handleGoodbye = client.createStep({
-    satisfied() {
-      return false
-    },
-
-    prompt() {
-      client.addResponse('goodbye')
-      client.done()
-    }
   })
 
   client.runFlow({
-    classifications: {
-      provide_options: 'provide_options',
-      goodbye: 'goodbye',
-      greeting: 'greeting'
-    },
+    classifications: {},
     streams: {
-      goodbye: handleGoodbye,
-      provide_options: handleOptions,
-      main: 'onboarding',
-      onboarding: [greeting],
-      end: [untrained]
+      main: 'provide_options',
+      provide_options: [collectOptions]
     }
   })
 }
