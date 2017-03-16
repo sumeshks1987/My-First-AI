@@ -24,6 +24,17 @@ exports.handle = function handle(client) {
     }
   })
 
+  const handleOptions = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('provide_options')
+      client.done()
+    }
+  })
+
   const handleGoodbye = client.createStep({
     satisfied() {
       return false
