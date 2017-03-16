@@ -2,19 +2,9 @@
 
 exports.handle = function handle(client) {
 
-  const untrained = client.createStep({
-    satisfied() {
-      return false
-    },
-
-    prompt() {
-      client.addResponse('apology/untrained')
-     client.done()
-    }
-  })
-
   const handleOptions = client.createStep({
     satisfied() {
+      console.log(client.getConversationState())
       return false
     },
 
@@ -37,7 +27,7 @@ exports.handle = function handle(client) {
 
   client.runFlow({
     classifications: {
-      request_audit: 'provide_options',
+      provide_options: 'provide_options',
       goodbye: 'goodbye',
       greeting: 'greeting'
     },
@@ -45,8 +35,7 @@ exports.handle = function handle(client) {
       goodbye: handleGoodbye,
       provide_options: handleOptions,
       main: 'onboarding',
-      onboarding: [handleOptions],
-      end: [untrained]
+      onboarding: [handleOptions]
     }
   })
 }
