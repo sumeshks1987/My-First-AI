@@ -4,17 +4,28 @@ exports.handle = function handle(client) {
   const collectOption = client.createStep({
     satisfied() {
       console.log('test')
+      return false
+    },
+    prompt() {
+      client.addResponse('provide_options')
+      client.done()
+    },
+  })
+
+  const option_selected = client.createStep({
+    satisfied() {
+      console.log('test')
       console.log(client)
-      return Boolean(client.getConversationState().weatherCity)
+      return Boolean(client.getConversationState().optionSelected)
     },
 
     extractInfo() {
      const option = client.getFirstEntityWithRole(client.getMessagePart(), 'option_selected')
       if (option) {
         client.updateConversationState({
-          weatherCity: city,
+          optionSelected: option,
         })
-        console.log('User wants the weather in:', city.value)
+        console.log('User wants the weather in:', option.value)
       }
     },
 
@@ -39,7 +50,7 @@ exports.handle = function handle(client) {
     classifications: {},
     streams: {
       main: 'getOption',
-      getOption: [collectOption, request_audit],
+      getOption: [collectOption, option_selected, request_audit],
     }
   })
 }
