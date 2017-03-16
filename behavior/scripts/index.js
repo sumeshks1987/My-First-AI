@@ -25,12 +25,12 @@ exports.handle = function handle(client) {
         client.updateConversationState({
           optionSelected: option,
         })
-        console.log('User wants the weather in:', option.value)
+        console.log('User wants the weather in:', option)
       }
     },
 
     prompt() {
-      client.addResponse('provide_options')
+      client.addResponse('request_audit')
       client.done()
     },
   })
