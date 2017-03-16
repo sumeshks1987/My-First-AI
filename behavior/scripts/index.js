@@ -4,13 +4,13 @@ exports.handle = function handle(client) {
   const collectOption = client.createStep({
     satisfied() {
       console.log('test')
-      console.log(client.getConversationState())
+      console.log(client)
       return Boolean(client.getConversationState().weatherCity)
     },
 
     extractInfo() {
-     const city = client.getFirstEntityWithRole(client.getMessagePart(), 'city')
-      if (city) {
+     const option = client.getFirstEntityWithRole(client.getMessagePart(), 'option_selected')
+      if (option) {
         client.updateConversationState({
           weatherCity: city,
         })
