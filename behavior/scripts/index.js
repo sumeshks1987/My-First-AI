@@ -1,7 +1,7 @@
 'use strict'
 
 exports.handle = function handle(client) {
-  const collectCity = client.createStep({
+  const collectOption = client.createStep({
     satisfied() {
       console.log('test')
       return Boolean(client.getConversationState().weatherCity)
@@ -18,7 +18,7 @@ exports.handle = function handle(client) {
     },
 
     prompt() {
-      client.addResponse('prompt/weather_city')
+      client.addResponse('provide_options')
       client.done()
     },
   })
@@ -62,8 +62,8 @@ exports.handle = function handle(client) {
   client.runFlow({
     classifications: {},
     streams: {
-      main: 'getWeather',
-      getWeather: [collectCity, provideWeather],
+      main: 'getOption',
+      getOption: [collectOption, provideWeather],
     }
   })
 }
