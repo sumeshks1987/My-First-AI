@@ -13,7 +13,7 @@ exports.handle = function handle(client) {
     }
   })
 
-  const handleOptions = client.createStep({
+  const greeting = client.createStep({
     satisfied() {
       return false
     },
@@ -45,7 +45,7 @@ exports.handle = function handle(client) {
       goodbye: handleGoodbye,
       provide_options: handleOptions,
       main: 'onboarding',
-      onboarding: [handleOptions],
+      onboarding: [greeting],
       end: [untrained]
     }
   })
