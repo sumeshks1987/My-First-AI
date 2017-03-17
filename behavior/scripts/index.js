@@ -117,7 +117,7 @@ exports.handle = (client) => {
       started_shopping: 'checkList',
       purchased_item: 'purchasedItem',
       remove_item: 'removeItem',
-      help: 'end',
+      option: 'end',
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
@@ -129,7 +129,7 @@ exports.handle = (client) => {
       clearList: [clearList],
       purchasedItem: [promptClear],
       removeItem: [promptClear],
-      end: [help],
+      end: [option],
     },
   })
 
