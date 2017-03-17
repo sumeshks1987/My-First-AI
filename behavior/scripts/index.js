@@ -124,7 +124,7 @@ exports.handle = (client) => {
     },
     streams: {
       main: [option],
-      addItem: [addItems],
+      addItem: [addItem],
       checkList: [checkList],
       clearList: [clearList],
       purchasedItem: [promptClear],
