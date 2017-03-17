@@ -32,9 +32,9 @@ exports.handle = (client) => {
 
           // Send a confirmation, using custom text for a few items and a list for more
           if (newItems.length < 3) {
-            client.addResponse('confirm_list_add', {item: newItems})
+            client.addResponse('request_audit', {item: newItems})
           } else {
-            client.addResponse('confirm_list_add', {item_list: newItems.join(', ')})
+            client.addResponse('request_audit', {item_list: newItems.join(', ')})
           }
         }
       } else {
