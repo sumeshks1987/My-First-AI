@@ -4,14 +4,14 @@ exports.handle = (client) => {
   // Create steps
 
   // addItem takes an item list from the inbound message, merges that list with conversation state, and stores it
-  const addItem = client.createStep({
+  const optionSelected = client.createStep({
     satisfied() {
       return false
     },
 
     prompt() {
-      let itemRoles = client.getEntities(client.getMessagePart(), 'item')
-
+      let itemRoles = client.getEntities(client.getMessagePart(), 'option_1')
+      console.log(itemRoles)
       if (itemRoles) {
         let items = itemRoles['generic']
 
@@ -110,7 +110,7 @@ exports.handle = (client) => {
   client.runFlow({
     classifications: {
       // map inbound message classifications to names of streams
-      add_list: 'addItem',
+      option_selected: 'optionSelected',
       check_list: 'checkList',
       clear_list: 'clearList',
       done_shopping: 'clearList',
@@ -124,7 +124,7 @@ exports.handle = (client) => {
     },
     streams: {
       main: [option],
-      addItem: [addItem],
+      optionSelected: [optionSelected],
       checkList: [checkList],
       clearList: [clearList],
       purchasedItem: [promptClear],
