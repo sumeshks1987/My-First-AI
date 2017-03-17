@@ -10,7 +10,7 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      console.log(client.getEntities)
+      console.log(client.getEntities('entity'))
       console.log('Client entity')
       let itemRoles = client.getEntities(client.getMessagePart(), 'option_1')
       client.addResponse('request_audit')
