@@ -10,30 +10,10 @@ exports.handle = (client) => {
     },
 
     prompt() {
+      console.log(client.getEntities)
+      console.log('Client entity')
       let itemRoles = client.getEntities(client.getMessagePart(), 'option_1')
-      console.log(itemRoles)
-      if (itemRoles) {
-        let items = itemRoles['generic']
-
-        if (items.length > 0) {
-          let listItems = client.getConversationState().listItems || []
-
-
-
-          let newItems = items.map(i => i.raw_value)
-
-          // Send a confirmation, using custom text for a few items and a list for more
-          if (newItems.length < 3) {
-            client.addResponse('request_audit', {item: newItems})
-          } else {
-            client.addResponse('request_audit', {item_list: newItems.join(', ')})
-          }
-        }
-      } else {
-        // No items detected
-        client.addResponse('list_add_error')
-      }
-
+      client.addResponse('request_audit')
       client.done()
     }
   })
@@ -45,44 +25,7 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      let listItems = client.getConversationState().listItems || []
-
-      // Get the raw text names from the entity objects
-      let itemList = listItems.map(i => i.raw_value)
-
-      if (itemList.length < 1) {
-        client.addResponse('request_audit')
-      } else if (itemList.length < 3) {
-        client.addResponse('request_audit', {item: itemList})
-      } else {
-        client.addResponse('request_audit', {item_list: itemList.join(', ')})
-      }
-      client.done()
-    }
-  })
-
-  // Clear the list and then confirm to user
-  const clearList = client.createStep({
-    satisfied() {
-      return false
-    },
-
-    prompt() {
-      client.updateConversationState('listItems', [])
-
-      client.addResponse('cleared_list')
-      client.done()
-    }
-  })
-
-  // Tell the user to clear the list, if they are trying to remove a single item
-  const promptClear = client.createStep({
-    satisfied() {
-      return false
-    },
-
-    prompt() {
-      client.addResponse('prompt_clear_list')
+      client.addResponse('request_audit')
       client.done()
     }
   })
@@ -104,11 +47,6 @@ exports.handle = (client) => {
       // map inbound message classifications to names of streams
       option_selected: 'optionSelected',
       request_audit: 'requestAudit',
-      clear_list: 'clearList',
-      done_shopping: 'clearList',
-      started_shopping: 'checkList',
-      purchased_item: 'purchasedItem',
-      remove_item: 'removeItem',
       option: 'end',
     },
     autoResponses: {
@@ -118,9 +56,6 @@ exports.handle = (client) => {
       main: [option],
       optionSelected: [optionSelected],
       requestAudit: [requestAudit],
-      clearList: [clearList],
-      purchasedItem: [promptClear],
-      removeItem: [promptClear],
       end: [option],
     },
   })
