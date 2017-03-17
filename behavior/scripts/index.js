@@ -18,15 +18,7 @@ exports.handle = (client) => {
         if (items.length > 0) {
           let listItems = client.getConversationState().listItems || []
 
-          // Deduplicate with existing items
-          const existingItemNames = listItems.map(i => i.raw_value) // Get the raw text names from the entity objects
-          items.forEach(item => {
-            if (existingItemNames.indexOf(item.raw_value) < 0) {
-              listItems.push(item)
-            }
-          })
 
-          client.updateConversationState('listItems', listItems)
 
           let newItems = items.map(i => i.raw_value)
 
@@ -47,7 +39,7 @@ exports.handle = (client) => {
   })
 
   // Fetch and show the list contents
-  const checkList = client.createStep({
+  const requestAudit = client.createStep({
     satisfied() {
       return false
     },
@@ -59,11 +51,11 @@ exports.handle = (client) => {
       let itemList = listItems.map(i => i.raw_value)
 
       if (itemList.length < 1) {
-        client.addResponse('provide_empty_list')
+        client.addResponse('request_audit')
       } else if (itemList.length < 3) {
-        client.addResponse('provide_list', {item: itemList})
+        client.addResponse('request_audit', {item: itemList})
       } else {
-        client.addResponse('provide_list', {item_list: itemList.join(', ')})
+        client.addResponse('request_audit', {item_list: itemList.join(', ')})
       }
       client.done()
     }
@@ -111,7 +103,7 @@ exports.handle = (client) => {
     classifications: {
       // map inbound message classifications to names of streams
       option_selected: 'optionSelected',
-      check_list: 'checkList',
+      request_audit: 'requestAudit',
       clear_list: 'clearList',
       done_shopping: 'clearList',
       started_shopping: 'checkList',
@@ -125,7 +117,7 @@ exports.handle = (client) => {
     streams: {
       main: [option],
       optionSelected: [optionSelected],
-      checkList: [checkList],
+      requestAudit: [requestAudit],
       clearList: [clearList],
       purchasedItem: [promptClear],
       removeItem: [promptClear],
