@@ -12,10 +12,18 @@ exports.handle = (client) => {
     prompt() {
       console.log('Client entity')
       let option1 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      let option2 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      let option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      let option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      console.log(option1)
+      let option2 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_2').value
+      let option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_3').value
+      let option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_4').value
+      if(option1){
+      	console.log("option 1 selected")
+      } else if(option2){
+      	console.log("option 2 selected")
+      } else if(option3){
+      	console.log("option 3 selected")
+      } else {
+      	console.log("option 4 selected")
+      }
       client.addResponse('request_audit')
       client.done()
     }
