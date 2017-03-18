@@ -10,12 +10,9 @@ exports.handle = (client) => {
     },
 
     prompt() {
+      console.log(client.getEntities(client.getMessagePart(), 'option_1').value)
       console.log('Client entity')
-      let requestType[0] = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      let requestType[1] = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      let requestType[2] = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      let requestType[3] = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      console.log(requestType)
+      let itemRoles = client.getEntities(client.getMessagePart(), 'option_1').value
       client.addResponse('request_audit')
       client.done()
     }
