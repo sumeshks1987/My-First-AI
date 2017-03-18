@@ -62,7 +62,7 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addResponse('request_email')
+      client.addResponse('provide_options')
       client.done()
     }
   })
