@@ -11,11 +11,11 @@ exports.handle = (client) => {
 
     prompt() {
       console.log('Client entity')
-      let selectedOption[0] = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      let selectedOption[1] = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      let selectedOption[2] = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      let selectedOption[3] = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      console.log(selectedOption)
+      let option1 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
+      let option2 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
+      let option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
+      let option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
+      console.log(option1)
       client.addResponse('request_audit')
       client.done()
     }
