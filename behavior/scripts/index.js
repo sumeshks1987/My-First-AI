@@ -18,7 +18,7 @@ exports.handle = (client) => {
       if(option2){
       	console.log("option 1 selected")
       } else if(option1){
-      	console.log("option 2 selected")
+      	client.addResponse('request_audit')
       } else if(option3){
       	console.log("option 3 selected")
       } else {
