@@ -50,17 +50,6 @@ exports.handle = (client) => {
       client.done()
     }
   })
-  
-  const requestEmail = client.createStep({
-    satisfied() {
-      return false
-    },
-
-    prompt() {
-      client.addResponse('request_email')
-      client.done()
-    }
-  })
 
   // Help / intro message
   const option = client.createStep({
@@ -79,8 +68,7 @@ exports.handle = (client) => {
       // map inbound message classifications to names of streams
       option_selected: 'optionSelected',
       request_audit: 'requestAudit',
-      get_website: 'checkUrl'
-      request_email: 'requestEmail'
+      get_website: 'checkUrl',
       option: 'end',
     },
     autoResponses: {
@@ -90,8 +78,7 @@ exports.handle = (client) => {
       main: [option],
       optionSelected: [optionSelected],
       requestAudit: [requestAudit],
-      checkUrl: [checkUrl],
-      requestEmail: [requestEmail],
+      checkUrl: [checkUrl]
       end: [option],
     },
   })
