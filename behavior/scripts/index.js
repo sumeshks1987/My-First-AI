@@ -18,7 +18,8 @@ exports.handle = (client) => {
       if(option2){
       	console.log("option 1 selected")
       } else if(option1){
-      	client.addResponse('request_audit')
+      	//client.addResponse('request_audit')
+      	client.addTextResponse('We are glad to hear that. Please share your website url for the same.')
       } else if(option3){
       	console.log("option 3 selected")
       } else {
