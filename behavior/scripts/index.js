@@ -71,7 +71,7 @@ exports.handle = (client) => {
     classifications: {
       // map inbound message classifications to names of streams
       option_selected: 'optionSelected',
-      request_audit: 'requestAudit',
+      //request_audit: 'requestAudit',
       request_email: 'requestEmail',
       option: 'end',
     },
@@ -81,7 +81,7 @@ exports.handle = (client) => {
     streams: {
       main: [option],
       optionSelected: [optionSelected],
-      requestAudit: [requestAudit],
+      //requestAudit: [requestAudit],
       requestEmail: [requestEmail],
       end: [option],
     },
