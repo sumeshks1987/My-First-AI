@@ -18,7 +18,7 @@ exports.handle = (client) => {
       if(option2){
       	console.log("option 1 selected")
       } else if(option1){
-      	client.addResponse('request_audit')
+      	console.log("option 2 selected")
       } else if(option3){
       	console.log("option 3 selected")
       } else {
@@ -40,13 +40,15 @@ exports.handle = (client) => {
     }
   })
 
-  const checkUrl = client.createStep({
+  // Fetch and show the list contents
+  const requestEmail = client.createStep({
     satisfied() {
       return false
     },
 
     prompt() {
-      client.addResponse('request_audit')
+      console.log('Email')
+      client.addResponse('request_email')
       client.done()
     }
   })
@@ -68,7 +70,7 @@ exports.handle = (client) => {
       // map inbound message classifications to names of streams
       option_selected: 'optionSelected',
       request_audit: 'requestAudit',
-      get_website: 'checkUrl',
+      request_email: 'requestEmail',
       option: 'end',
     },
     autoResponses: {
@@ -78,7 +80,7 @@ exports.handle = (client) => {
       main: [option],
       optionSelected: [optionSelected],
       requestAudit: [requestAudit],
-      checkUrl: [checkUrl]
+      requestEmail: [requestEmail],
       end: [option],
     },
   })
