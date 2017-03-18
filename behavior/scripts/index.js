@@ -73,6 +73,7 @@ exports.handle = (client) => {
       option_selected: 'optionSelected',
       //request_audit: 'requestAudit',
       request_email: 'requestEmail',
+      request_audit: 'requestAudit',
       option: 'end',
     },
     autoResponses: {
@@ -83,6 +84,7 @@ exports.handle = (client) => {
       optionSelected: [optionSelected],
       //requestAudit: [requestAudit],
       requestEmail: [requestEmail],
+      requestAudit: [requestAudit],
       end: [option],
     },
   })
