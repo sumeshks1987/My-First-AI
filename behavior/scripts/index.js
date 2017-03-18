@@ -15,16 +15,15 @@ exports.handle = (client) => {
       const option2 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_2')
       const option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_3')
       const option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_4')
-      if(option1){
+      if(option2){
       	console.log("option 1 selected")
-      }/* else if(option2){
-      	console.log("option 2 selected")
+      } else if(option1){
+      	client.addResponse('request_audit')
       } else if(option3){
       	console.log("option 3 selected")
       } else {
       	console.log("option 4 selected")
-      }*/
-      client.addResponse('request_audit')
+      }
       client.done()
     }
   })
