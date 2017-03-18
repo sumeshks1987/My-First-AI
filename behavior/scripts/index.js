@@ -11,10 +11,10 @@ exports.handle = (client) => {
 
     prompt() {
       console.log('Client entity')
-      const option1 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1').value
-      const option2 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_2').value
-      const option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_3').value
-      const option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_4').value
+      const option1 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1')
+      const option2 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_2')
+      const option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_3')
+      const option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_4')
       if(option1){
       	console.log("option 1 selected")
       }/* else if(option2){
