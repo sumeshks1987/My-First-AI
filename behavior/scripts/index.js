@@ -83,7 +83,7 @@ exports.handle = (client) => {
       main: [option],
       optionSelected: [optionSelected],
       //requestAudit: [requestAudit],
-      requestEmail: [requestEmail],
+      requestEmail: [requestEmail, 'request_email'],
       requestAudit: [requestAudit],
       end: [option],
     },
