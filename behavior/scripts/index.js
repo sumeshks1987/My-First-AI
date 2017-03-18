@@ -36,7 +36,8 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addResponse('request_audit')
+    	console.log('Request Audit')
+      client.addResponse('request_email')
       client.done()
     }
   })
