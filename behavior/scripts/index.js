@@ -11,7 +11,7 @@ exports.handle = (client) => {
 
     prompt() {
       console.log('Client entity')
-      const option1 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1')
+      const global.option1 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1')
       const option2 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_2')
       const option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_3')
       const option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_4')
