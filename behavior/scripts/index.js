@@ -68,6 +68,7 @@ exports.handle = (client) => {
       //console.log(client.getConversation().state['option'])
       if(client.getConversation().state['website']){
       	//client.updateConversationState('website', email.value)
+      	client.addResponse('request_email')
       } else {
       	client.updateConversationState('website', email.value)
       	client.addResponse('request_email')
