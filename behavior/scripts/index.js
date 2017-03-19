@@ -72,7 +72,7 @@ exports.handle = (client) => {
       console.log(website)
       if(client.getConversation().state['website']){
       	//client.updateConversationState('website', email.value)
-      	client.updateConversationState('email', website.value)
+      	client.updateConversationState('email', email.value)
       	client.addTextResponse('We will get back to you with the Audit report in around 24-48 hrs.')
       } else {
       	client.updateConversationState('website', email.value)
