@@ -66,7 +66,9 @@ exports.handle = (client) => {
       console.log('Email')
       const email = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id')
       //console.log(client.getConversation().state['option'])
-      if(empty(client.getConversation().state['website'])){
+      if(client.getConversation().state['website']){
+      	//client.updateConversationState('website', email.value)
+      } else {
       	client.updateConversationState('website', email.value)
       }
       console.log(client.getConversation())
