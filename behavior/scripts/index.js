@@ -83,24 +83,22 @@ exports.handle = (client) => {
   client.runFlow({
     classifications: {
       // map inbound message classifications to names of streams
-      greeting: 'option',
       option_selected: 'optionSelected',
       request_website: 'website',
       response_email: 'requestEmail',
       request_audit: 'requestAudit',
-      option: 'end',
+      greeting: 'option',
     },
     autoResponses: {
       // configure responses to be automatically sent as predicted by the machine learning model
     },
     streams: {
-      main: [greeting],
-      option: [option]
+      main: [option],
       optionSelected: [optionSelected],
       website: [website],
       requestEmail: [requestEmail],
       requestAudit: [requestAudit],
-      end: [option],
+      option: [option],
     },
   })
 
