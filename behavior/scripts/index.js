@@ -64,7 +64,7 @@ exports.handle = (client) => {
     prompt() {
       console.log('Email')
       const email = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id')
-      console.log(option1)
+      console.log(client.getConversation())
       client.addResponse('request_email')
       client.done()
     }
