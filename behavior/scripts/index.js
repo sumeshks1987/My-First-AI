@@ -72,7 +72,7 @@ exports.handle = (client) => {
       	client.addResponse('request_email')
       } else {
       	client.updateConversationState('website', email.value)
-      	client.addResponse('website')
+      	client.addResponse('request_website')
       }
       console.log(client.getConversation())
       
