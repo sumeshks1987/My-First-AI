@@ -29,6 +29,18 @@ exports.handle = (client) => {
     }
   })
 
+  const requestAudit = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+    	console.log('Request Audit')
+      client.addResponse('request_audit')
+      client.done()
+    }
+  })
+
   // Fetch and show the list contents
   const website = client.createStep({
     satisfied() {
