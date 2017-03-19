@@ -19,7 +19,8 @@ exports.handle = (client) => {
       	console.log("option 1 selected")
       } else if(option1){
       	//client.addResponse('request_audit')
-      	client.addTextResponse('We are glad to hear that. Please share your website url for the same.', {selected: option1})
+      	client.updateConversationState('option','seo audit')
+      	client.addTextResponse('We are glad to hear that. Please share your website url for the same.')
       } else if(option3){
       	console.log("option 3 selected")
       } else {
