@@ -65,11 +65,14 @@ exports.handle = (client) => {
     prompt() {
       console.log('Email')
       const email = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id')
+      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'website')
       //console.log(client.getConversation().state['option'])
       console.log(email)
+      console.log('website')
+      console.log(website)
       if(client.getConversation().state['website']){
       	//client.updateConversationState('website', email.value)
-      	client.updateConversationState('email', email.value)
+      	client.updateConversationState('email', website.value)
       	client.addResponse('request_email')
       } else {
       	client.updateConversationState('website', email.value)
