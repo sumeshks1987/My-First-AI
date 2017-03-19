@@ -65,7 +65,7 @@ exports.handle = (client) => {
     prompt() {
       console.log('Email')
       const email = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id')
-      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'website')
+      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'url/website')
       //console.log(client.getConversation().state['option'])
       console.log(email)
       console.log('website')
@@ -73,10 +73,10 @@ exports.handle = (client) => {
       if(client.getConversation().state['website']){
       	//client.updateConversationState('website', email.value)
       	client.updateConversationState('email', website.value)
-      	client.addResponse('request_email')
+      	client.addTextResponse('We will get back to you with the Audit report in around 24-48 hrs.')
       } else {
       	client.updateConversationState('website', email.value)
-      	client.addResponse('request_website')
+      	client.addTextResponse('Thanks for providing the URL. Please provide us your email ID to which we can send the details of the audit.')
       }
       console.log(client.getConversation())
       
