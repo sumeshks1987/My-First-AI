@@ -94,7 +94,8 @@ exports.handle = (client) => {
       // configure responses to be automatically sent as predicted by the machine learning model
     },
     streams: {
-      main: [option],
+      main: [greeting],
+      option: [option]
       optionSelected: [optionSelected],
       website: [website],
       requestEmail: [requestEmail],
