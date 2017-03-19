@@ -30,7 +30,7 @@ exports.handle = (client) => {
   })
 
   // Fetch and show the list contents
-  const requestAudit = client.createStep({
+  const website = client.createStep({
     satisfied() {
       return false
     },
@@ -71,7 +71,7 @@ exports.handle = (client) => {
     classifications: {
       // map inbound message classifications to names of streams
       option_selected: 'optionSelected',
-      //request_audit: 'requestAudit',
+      request_website: 'website',
       request_email: 'requestEmail',
       request_audit: 'requestAudit',
       option: 'end',
@@ -82,8 +82,8 @@ exports.handle = (client) => {
     streams: {
       main: [option],
       optionSelected: [optionSelected],
-      //requestAudit: [requestAudit],
-      requestEmail: [requestEmail, 'request_email'],
+      website: [website],
+      requestEmail: [requestEmail],
       requestAudit: [requestAudit],
       end: [option],
     },
