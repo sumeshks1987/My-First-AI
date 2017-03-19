@@ -48,7 +48,8 @@ exports.handle = (client) => {
     },
 
     prompt() {
-    	console.log('Request Audit')
+      console.log('Request Audit')
+      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1')
       client.addResponse('request_email')
       client.done()
     }
@@ -82,6 +83,7 @@ exports.handle = (client) => {
   client.runFlow({
     classifications: {
       // map inbound message classifications to names of streams
+      greeting: 'option',
       option_selected: 'optionSelected',
       request_website: 'website',
       response_email: 'requestEmail',
