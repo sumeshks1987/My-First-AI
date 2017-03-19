@@ -49,7 +49,7 @@ exports.handle = (client) => {
 
     prompt() {
       console.log('Request Audit')
-      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'option_1')
+      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'url')
       client.addResponse('request_email')
       client.done()
     }
@@ -63,6 +63,8 @@ exports.handle = (client) => {
 
     prompt() {
       console.log('Email')
+      const email = client.getFirstEntityWithRole(client.getMessagePart(), 'response_email')
+      console.log(email)
       client.addResponse('request_email')
       client.done()
     }
