@@ -70,9 +70,10 @@ exports.handle = (client) => {
       	//client.updateConversationState('website', email.value)
       } else {
       	client.updateConversationState('website', email.value)
+      	client.addResponse('request_email')
       }
       console.log(client.getConversation())
-      client.addResponse('request_email')
+      
       client.done()
     }
   })
