@@ -16,7 +16,8 @@ exports.handle = (client) => {
       let option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_3')
       let option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_4')
       if(option2){
-      	console.log("option 1 selected")
+      	client.updateConversationState('option','call back')
+        client.addTextResponse('Please provide your mobile number with STD code.')
       } else if(option1){
       	//client.addResponse('request_audit')
       	client.updateConversationState('option','seo audit')
