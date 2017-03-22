@@ -73,7 +73,7 @@ exports.handle = (client) => {
       if(client.getConversation().state['website']){
       	//client.updateConversationState('website', email.value)
       	client.updateConversationState('email', email.value)
-      	client.addTextResponse('We will get back to you with the Audit report in around 24-48 hrs.')
+      	client.addTextResponse('We will send you the Audit report in around 24-48 hrs to your email address ' + email.value + '.')
       } else {
       	client.updateConversationState('website', email.value)
       	client.addTextResponse('Thanks for providing the URL. Please provide us your email ID to which we can send the details of the audit.')
