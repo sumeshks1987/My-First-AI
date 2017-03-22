@@ -99,18 +99,6 @@ exports.handle = (client) => {
     }
   })
 
-  const checkEMail = client.createStep({
-    satisfied() {
-      return false
-    },
-
-    prompt() {
-      console.log('Check website')
-      client.addResponse('request_number')
-      client.done()
-    }
-  })
-
   // Help / intro message
   const option = client.createStep({
     satisfied() {
