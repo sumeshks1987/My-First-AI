@@ -67,9 +67,13 @@ exports.handle = (client) => {
     },
 
     prompt() {
+      console.log('Email')
       const email = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id')
       const website = client.getFirstEntityWithRole(client.getMessagePart(), 'url/website')
       //console.log(client.getConversation().state['option'])
+      console.log(email)
+      console.log('website')
+      console.log(website)
       if(client.getConversation().state['website']){
       	//client.updateConversationState('website', email.value)
       	client.updateConversationState('email', email.value)
@@ -78,6 +82,8 @@ exports.handle = (client) => {
       	client.updateConversationState('website', email.value)
       	client.addTextResponse('Thanks for providing the URL. Please provide us your email ID to which we can send the details of the audit.')
       }
+      console.log(client.getConversation())
+      
       client.done()
     }
   })
@@ -115,7 +121,7 @@ exports.handle = (client) => {
       requestEmail: [requestEmail],
       requestAudit: [requestAudit],
       requestNumber: [requestNumber],
-      callBackEnd: [callBackEnd],
+      callBackEnd: [callBackEnd]
       option: [option],
     },
   })
