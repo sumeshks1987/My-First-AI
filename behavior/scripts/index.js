@@ -16,9 +16,7 @@ exports.handle = (client) => {
       let option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_3')
       let option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_4')
       if(option2){
-      	client.updateConversationState('option','call back')
-        client.updateConversationState('number','')
-        client.addTextResponse('Please provide your mobile number with STD code.')
+      	console.log("option 1 selected")
       } else if(option1){
       	//client.addResponse('request_audit')
       	client.updateConversationState('option','seo audit')
@@ -107,8 +105,6 @@ exports.handle = (client) => {
       request_website: 'website',
       response_email: 'requestEmail',
       request_audit: 'requestAudit',
-      response_number: 'requestNumber'
-      callback_end: 'callBackEnd'
       greeting: 'option',
     },
     autoResponses: {
@@ -120,8 +116,6 @@ exports.handle = (client) => {
       website: [website],
       requestEmail: [requestEmail],
       requestAudit: [requestAudit],
-      requestNumber: [requestNumber],
-      callBackEnd: [callBackEnd]
       option: [option],
     },
   })
