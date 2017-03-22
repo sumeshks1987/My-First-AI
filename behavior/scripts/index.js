@@ -17,7 +17,7 @@ exports.handle = (client) => {
       let option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_4')
       if(option2){
       	client.updateConversationState('option','call back')
-        client.addTextResponse('Please provide your mobile number with STD code.')
+        client.addTextResponse('We are glad to hear that. Please share your website url for the same.')
       } else if(option1){
       	//client.addResponse('request_audit')
       	client.updateConversationState('option','seo audit')
@@ -119,7 +119,6 @@ exports.handle = (client) => {
       response_email: 'requestEmail',
       request_audit: 'requestAudit',
       request_number: 'requestNumber',
-      request_email: 'checkEMail'
       greeting: 'option',
     },
     autoResponses: {
@@ -132,7 +131,6 @@ exports.handle = (client) => {
       requestEmail: [requestEmail],
       requestAudit: [requestAudit],
       requestNumber: [requestNumber],
-      checkEMail: [checkEMail],
       option: [option],
     },
   })
