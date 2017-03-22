@@ -86,6 +86,18 @@ exports.handle = (client) => {
     }
   })
 
+  const requestNumber = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      console.log('Request Number')
+      client.addResponse('request_number')
+      client.done()
+    }
+  })
+
   // Help / intro message
   const option = client.createStep({
     satisfied() {
@@ -105,6 +117,7 @@ exports.handle = (client) => {
       request_website: 'website',
       response_email: 'requestEmail',
       request_audit: 'requestAudit',
+      request_number: 'requestNumber',
       greeting: 'option',
     },
     autoResponses: {
@@ -116,6 +129,7 @@ exports.handle = (client) => {
       website: [website],
       requestEmail: [requestEmail],
       requestAudit: [requestAudit],
+      requestNumber: [requestNumber],
       option: [option],
     },
   })
