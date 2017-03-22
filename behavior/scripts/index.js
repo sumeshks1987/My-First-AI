@@ -99,6 +99,18 @@ exports.handle = (client) => {
     }
   })
 
+  const checkEMail = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      console.log('Check website')
+      client.addResponse('request_number')
+      client.done()
+    }
+  })
+
   // Help / intro message
   const option = client.createStep({
     satisfied() {
@@ -119,6 +131,7 @@ exports.handle = (client) => {
       response_email: 'requestEmail',
       request_audit: 'requestAudit',
       request_number: 'requestNumber',
+      request_email: 'checkEMail'
       greeting: 'option',
     },
     autoResponses: {
@@ -131,6 +144,7 @@ exports.handle = (client) => {
       requestEmail: [requestEmail],
       requestAudit: [requestAudit],
       requestNumber: [requestNumber],
+      checkEMail: [checkEMail],
       option: [option],
     },
   })
