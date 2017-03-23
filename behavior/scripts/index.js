@@ -100,6 +100,19 @@ exports.handle = (client) => {
   })
 
   // Help / intro message
+  const checkMail = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      console.log('Check Number')
+      client.addTextResponse('Check number')
+      client.done()
+    }
+  })
+
+  // Help / intro message
   const option = client.createStep({
     satisfied() {
       return false
