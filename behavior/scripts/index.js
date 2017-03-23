@@ -119,6 +119,7 @@ exports.handle = (client) => {
       response_email: 'requestEmail',
       request_audit: 'requestAudit',
       request_number: 'requestNumber',
+      request_email: 'checkMail',
       greeting: 'option',
     },
     autoResponses: {
@@ -131,6 +132,7 @@ exports.handle = (client) => {
       requestEmail: [requestEmail],
       requestAudit: [requestAudit],
       requestNumber: [requestNumber],
+      checkMail: [checkMail],
       option: [option],
     },
   })
