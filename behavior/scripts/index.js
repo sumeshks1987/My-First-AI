@@ -117,8 +117,10 @@ exports.handle = (client) => {
     },
 
     prompt() {
+      const phonenumber = client.getFirstEntityWithRole(client.getMessagePart(), 'phone-number/number')
+      client.updateConversationState('phonenumber', phonenumber.value)
       console.log('Request Number')
-      client.addTextResponse('Thanks for providing your contact details. We will get back to you in 2-4 hrs.')
+      client.addTextResponse('Thanks for providing your contact details. We will get back to you on your provided contact number ' + phonenumber.value + ' within 2-4 hrs.')
       client.done()
     }
   })
