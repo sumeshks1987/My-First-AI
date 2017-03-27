@@ -52,8 +52,9 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      console.log('Request Audit')
-      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'url')
+      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'url/website')
+      console.log(website.value)
+      client.updateConversationState('website', website.value)
       client.addResponse('request_email')
       client.done()
     }
@@ -68,7 +69,6 @@ exports.handle = (client) => {
     prompt() {
       console.log('Email')
       const email = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id')
-      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'url/website')
       //console.log(client.getConversation().state['option'])
       console.log(email)
       console.log('website')
