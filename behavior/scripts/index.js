@@ -145,7 +145,7 @@ exports.handle = (client) => {
       request_audit: 'requestAudit',
       request_number: 'requestNumber',
       request_email: 'checkMail',
-      callback_end: 'callBackEnd'
+      callback_end: 'callBackEnd',
       greeting: 'option',
     },
     autoResponses: {
@@ -159,6 +159,7 @@ exports.handle = (client) => {
       requestAudit: [requestAudit],
       requestNumber: [requestNumber],
       checkMail: [checkMail],
+      callBackEnd: [callBackEnd],
       option: [option],
     },
   })
