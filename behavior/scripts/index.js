@@ -105,7 +105,7 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      console.log('Request Number')
+      console.log('Request Number End')
       client.addTextResponse('Thanks for providing your contact details. We will get back to you in 2-4 hrs.')
       client.done()
     }
