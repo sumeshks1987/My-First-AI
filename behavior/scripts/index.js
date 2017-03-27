@@ -99,6 +99,18 @@ exports.handle = (client) => {
     }
   })
 
+  const callBackEnd = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      console.log('Request Number')
+      client.addTextResponse('Thanks for providing your contact details. We will get back to you in 2-4 hrs.')
+      client.done()
+    }
+  })
+
   // Help / intro message
   const checkMail = client.createStep({
     satisfied() {
@@ -133,6 +145,7 @@ exports.handle = (client) => {
       request_audit: 'requestAudit',
       request_number: 'requestNumber',
       request_email: 'checkMail',
+      callback_end: 'callBackEnd'
       greeting: 'option',
     },
     autoResponses: {
@@ -146,6 +159,7 @@ exports.handle = (client) => {
       requestAudit: [requestAudit],
       requestNumber: [requestNumber],
       checkMail: [checkMail],
+      callBackEnd: [callBackEnd],
       option: [option],
     },
   })
