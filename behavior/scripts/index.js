@@ -150,7 +150,7 @@ exports.handle = (client) => {
         client.makeReplyButton('Free SEO Audit','','option_selected',{option: 1})
       ]
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
-      client.addImageResponse('https://www.example.com/image.jpg')
+      client.addImageResponse('http://s19.postimg.org/6a86flbdf/robot-icon-4.png')
       client.done()
     }
   })
