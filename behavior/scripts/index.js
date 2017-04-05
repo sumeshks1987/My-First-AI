@@ -146,7 +146,7 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addResponse('provide_options')
+      client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
       client.done()
     }
   })
