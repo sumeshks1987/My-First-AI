@@ -146,7 +146,8 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addTextResponse('Hi there. How can we help you? Please choose from these options:' + client.makeReplyButton('Free SEO Audit','','option_selected',{option: 1}))
+      client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
+      client.addResponseWithReplies(client.makeReplyButton('Free SEO Audit','','option_selected',{option: 1}));
       client.done()
     }
   })
