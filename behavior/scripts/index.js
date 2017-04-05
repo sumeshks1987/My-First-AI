@@ -146,11 +146,7 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      let replies = [
-        client.makeReplyButton('Free SEO Audit','','option_selected',{option: 1})
-      ]
-      client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
-      client.addImageResponse('http://s19.postimg.org/6a86flbdf/robot-icon-4.png')
+      client.addTextResponse('Hi there. How can we help you? Please choose from these options:' + client.makeReplyButton('Free SEO Audit','','option_selected',{option: 1}))
       client.done()
     }
   })
