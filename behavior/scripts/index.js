@@ -149,7 +149,7 @@ exports.handle = (client) => {
       let replies = [
       client.makeReplyButton('Free SEO Audit','','option_selected',{option: 1})
       ]
-      client.addResponseWithReplies('Hi there. How can we help you? Please choose from these options:', {provide: 'options'}, replies)
+      client.addResponseWithReplies('provide_options', {provide: 'options'}, replies)
       client.done()
     }
   })
