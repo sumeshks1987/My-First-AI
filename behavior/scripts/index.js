@@ -147,7 +147,7 @@ exports.handle = (client) => {
 
     prompt() {
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
-      client.addResponseWithReplies('provide_options',[client.makeReplyButton('Free SEO Audit','https://image.freepik.com/free-icon/seo-up-arrows-symbol-in-a-circle_318-53437.jpg','option_selected',{option: 1})]);
+      client.addResponseWithReplies(client.addTextResponse('test'),{foo: 'bar'},[client.makeReplyButton('Free SEO Audit','https://image.freepik.com/free-icon/seo-up-arrows-symbol-in-a-circle_318-53437.jpg','option_selected',{option: 1})]);
       client.done()
     }
   })
