@@ -147,9 +147,10 @@ exports.handle = (client) => {
 
     prompt() {
       let replies = [
-      client.makeReplyButton('Free SEO Audit','','option_selected',{option: 1})
+        client.makeReplyButton('Free SEO Audit','','option_selected',{option: 1})
       ]
-      client.addTextResponse('Hi there. How can we help you? Please choose from these options:', replies)
+      client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
+      client.addImageResponse('https://www.example.com/image.jpg')
       client.done()
     }
   })
