@@ -150,7 +150,7 @@ exports.handle = (client) => {
 
     prompt() {
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
-      client.addCarouselListResponse({
+      /*client.addCarouselListResponse({
 		items: [
 		{
 		  media_url: 'https://c2.staticflickr.com/4/3512/5763418254_e2f42b2224_b.jpg',
@@ -186,7 +186,8 @@ exports.handle = (client) => {
 		  ],
 		},
 		],
-		})
+		})*/
+		client.addImageResponse('http://www.monidigital.com/wp-content/uploads/2015/12/SEO-Icon-300x285.png', 'SEO')
       client.done()
     }
   })
