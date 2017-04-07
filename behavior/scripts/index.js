@@ -16,11 +16,14 @@ exports.handle = (client) => {
       let option3 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_3')
       let option4 = client.getFirstEntityWithRole(client.getMessagePart(), 'option_4')
       if(option2){
-      	//client.updateConversationState('option','call back')
+      	client.updateConversationState('option','call back')
+      	client.updateConversationState('request','phonenumber')
+      	client.updateConversationState('phonenumber','')
         client.addTextResponse('Please provide your mobile number with country code.')
       } else if(option1){
       	//client.addResponse('request_audit')
       	client.updateConversationState('option','seo audit')
+      	client.updateConversationState('request','email')
         client.updateConversationState('website', '')
         client.updateConversationState('email', '')
       	client.addTextResponse('We are glad to hear that. Please share your website url for the same.')
@@ -147,7 +150,7 @@ exports.handle = (client) => {
 
     prompt() {
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
-      client.addResponseWithReplies(client.addTextResponse('test'),{foo: 'bar'},[client.makeReplyButton('Free SEO Audit','https://image.freepik.com/free-icon/seo-up-arrows-symbol-in-a-circle_318-53437.jpg','option_selected',{option: 1})]);
+      client.addResponseWithReplies('provide_options',{foo: 'bar'},[client.makeReplyButton('Free SEO Audit','https://image.freepik.com/free-icon/seo-up-arrows-symbol-in-a-circle_318-53437.jpg','option_selected',{option: 1}),client.makeReplyButton('Call back','https://image.freepik.com/free-icon/seo-up-arrows-symbol-in-a-circle_318-53437.jpg','option_selected',{option: 2})]);
       client.done()
     }
   })
