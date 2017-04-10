@@ -150,50 +150,7 @@ exports.handle = (client) => {
 
     prompt() {
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
-      client.addCarouselListResponse({
-		  items: [
-		    {
-		      title: 'Free SEO Audit',
-		      actions: [
-		        {
-		          type: 'link',
-		          text: 'View info',
-		          uri: 'https://en.wikipedia.org/wiki/Yellowstone_National_Park',
-		        },
-		      ],
-		    },
-		    {
-		      title: 'Call Back',
-		      actions: [
-		        {
-		          type: 'link',
-		          text: 'View info',
-		          uri: 'https://en.wikipedia.org/wiki/Yellowstone_National_Park',
-		        },
-		      ],
-		    },
-		    {
-		      title: 'Jobs',
-		      actions: [
-		        {
-		          type: 'link',
-		          text: 'View info',
-		          uri: 'https://en.wikipedia.org/wiki/Yellowstone_National_Park',
-		        },
-		      ],
-		    },
-		    {
-		      title: 'About us',
-		      actions: [
-		        {
-		          type: 'link',
-		          text: 'View info',
-		          uri: 'https://en.wikipedia.org/wiki/Yellowstone_National_Park',
-		        },
-		      ],
-		    },
-		  ],
-		})
+      client.addTextResponse('<span>Free SEO Audit</span>')      
 	  //client.addImageResponse('http://www.monidigital.com/wp-content/uploads/2015/12/SEO-Icon-300x285.png', 'SEO')
       client.done()
     }
