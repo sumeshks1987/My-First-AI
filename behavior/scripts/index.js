@@ -154,15 +154,43 @@ exports.handle = (client) => {
 		  items: [
 		    {
 		      title: 'Free SEO Audit',
+		      actions: [
+		        {
+		          type: 'link',
+		          text: 'View info',
+		          uri: 'https://en.wikipedia.org/wiki/Yellowstone_National_Park',
+		        },
+		      ],
 		    },
 		    {
 		      title: 'Call Back',
+		      actions: [
+		        {
+		          type: 'link',
+		          text: 'View info',
+		          uri: 'https://en.wikipedia.org/wiki/Yellowstone_National_Park',
+		        },
+		      ],
 		    },
 		    {
 		      title: 'Jobs',
+		      actions: [
+		        {
+		          type: 'link',
+		          text: 'View info',
+		          uri: 'https://en.wikipedia.org/wiki/Yellowstone_National_Park',
+		        },
+		      ],
 		    },
 		    {
 		      title: 'About us',
+		      actions: [
+		        {
+		          type: 'link',
+		          text: 'View info',
+		          uri: 'https://en.wikipedia.org/wiki/Yellowstone_National_Park',
+		        },
+		      ],
 		    },
 		  ],
 		})
