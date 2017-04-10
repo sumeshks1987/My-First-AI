@@ -154,43 +154,15 @@ exports.handle = (client) => {
 		  items: [
 		    {
 		      title: 'Free SEO Audit',
-		      actions: [
-		        {
-		          type: 'link',
-		          text: 'View info',
-		          uri: 'Free SEO Audit',
-		        },
-		      ],
 		    },
 		    {
 		      title: 'Call Back',
-		      actions: [
-		        {
-		          type: 'link',
-		          text: 'View info',
-		          uri: 'Call Back',
-		        },
-		      ],
 		    },
 		    {
 		      title: 'Jobs',
-		      actions: [
-		        {
-		          type: 'link',
-		          text: 'View info',
-		          uri: 'Jobs',
-		        },
-		      ],
 		    },
 		    {
 		      title: 'About us',
-		      actions: [
-		        {
-		          type: 'link',
-		          text: 'View info',
-		          uri: 'About us',
-		        },
-		      ],
 		    },
 		  ],
 		})
