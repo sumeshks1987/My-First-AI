@@ -150,7 +150,7 @@ exports.handle = (client) => {
 
     prompt() {
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
-      client.addTextResponse('<span>Free SEO Audit</span>')      
+      client.addTextResponse('Free SEO Audit,Call Back,Jobs,About us')      
 	  //client.addImageResponse('http://www.monidigital.com/wp-content/uploads/2015/12/SEO-Icon-300x285.png', 'SEO')
       client.done()
     }
