@@ -153,6 +153,7 @@ exports.handle = (client) => {
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
       client.addTextResponse('Free SEO Audit,Call Back,Jobs,About us')
       const replies = [client.makeReplyButton('Free SEO Audit', null, returnToStream, {confirmed: true}),]
+      replies.push(client.makeReplyButton('Call back', null, returnToStream, {confirmedTicker: 'test'}))
       client.addResponseWithReplies('option_selected', {company_name: 'Test', ticker_symbol: 'test'}, replies)
 	    //client.addImageResponse('http://www.monidigital.com/wp-content/uploads/2015/12/SEO-Icon-300x285.png', 'SEO')
       client.done()
