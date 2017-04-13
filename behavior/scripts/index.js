@@ -149,9 +149,12 @@ exports.handle = (client) => {
     },
 
     prompt() {
+      const returnToStream = client.getConversationState().currentGoalStream
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
-      client.addTextResponse('Free SEO Audit,Call Back,Jobs,About us')      
-	  //client.addImageResponse('http://www.monidigital.com/wp-content/uploads/2015/12/SEO-Icon-300x285.png', 'SEO')
+      client.addTextResponse('Free SEO Audit,Call Back,Jobs,About us')
+      const replies = [client.makeReplyButton('Free SEO Audit', null, returnToStream, {confirmed: true}),]
+      client.addResponseWithReplies('option_selected', {company_name: 'Test', ticker_symbol: 'test'}, replies)
+	    //client.addImageResponse('http://www.monidigital.com/wp-content/uploads/2015/12/SEO-Icon-300x285.png', 'SEO')
       client.done()
     }
   })
