@@ -150,12 +150,13 @@ exports.handle = (client) => {
 
     prompt() {
       const returnToStream = client.getConversationState().currentGoalStream
+      console.log(returnToStream)
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
       client.addTextResponse('Free SEO Audit,Call Back,Jobs,About us')
       const replies = [client.makeReplyButton('Free SEO Audit', null, returnToStream, {confirmed: true}),]
       replies.push(client.makeReplyButton('Call back', null, returnToStream, {confirmedTicker: 'test'}))
-      client.addResponseWithReplies('option_selected', {company_name: 'Test', ticker_symbol: 'test'}, replies)
-      client.expect(client.getStreamName(), ['decline', 'affirmative', 'accept', 'provide_info', 'switch_company'])
+      client.addResponseWithReplies('greeting', {company_name: 'Test', ticker_symbol: 'test'}, replies)
+      client.expect(client.getStreamName(), ['decline', 'affirmative'])
 	    //client.addImageResponse('http://www.monidigital.com/wp-content/uploads/2015/12/SEO-Icon-300x285.png', 'SEO')
       client.done()
     }
