@@ -29,6 +29,9 @@ exports.handle = (client) => {
       	client.addTextResponse('We are glad to hear that. Please share your website url for the same.')
       } else if(option3){
       	client.updateConversationState('option','jobs')
+        client.addTextResponse('envigo is a great place to work, we are on the lookout for new talent, take a look at our current vacancies.')
+        client.addTextResponse('Front end developer | Adobe experience manager developer | Account director (Digital)')
+        client.addTextResponse('Find more details over here https://envigo.digital/careers')
       } else {
       	client.updateConversationState('option','about us')
       }
@@ -166,10 +169,6 @@ exports.handle = (client) => {
       console.log(returnToStream)
       client.addTextResponse('Hi there. How can we help you? Please choose from these options:')
       client.addTextResponse('Free SEO Audit,Call Back,Jobs,About us')
-      const replies = [client.makeReplyButton('Free SEO Audit', null, returnToStream, {confirmed: true}),]
-      replies.push(client.makeReplyButton('Call back', null, returnToStream, {confirmedTicker: 'test'}))
-      client.addResponseWithReplies('greeting', {company_name: 'Test', ticker_symbol: 'test'}, replies)
-      client.expect(client.getStreamName(), ['decline', 'affirmative'])
 	    //client.addImageResponse('http://www.monidigital.com/wp-content/uploads/2015/12/SEO-Icon-300x285.png', 'SEO')
       client.done()
     }
