@@ -28,9 +28,9 @@ exports.handle = (client) => {
         client.updateConversationState('email', '')
       	client.addTextResponse('We are glad to hear that. Please share your website url for the same.')
       } else if(option3){
-      	console.log("option 3 selected")
+      	client.updateConversationState('option','jobs')
       } else {
-      	console.log("option 4 selected")
+      	client.updateConversationState('option','about us')
       }
       client.done()
     }
@@ -129,6 +129,19 @@ exports.handle = (client) => {
     }
   })
 
+  const responseJobs = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addTextResponse('envigo is a great place to work, we are on the lookout for new talent, take a look at our current vacancies.')
+      client.addTextResponse('Front end developer | Adobe experience manager developer | Account director (Digital)')
+      client.addTextResponse('Find more details over here https://envigo.digital/careers')
+      client.done()
+    }
+  })
+
   // Help / intro message
   const checkMail = client.createStep({
     satisfied() {
@@ -173,6 +186,7 @@ exports.handle = (client) => {
       request_number: 'requestNumber',
       request_email: 'checkMail',
       callback_end: 'callBackEnd',
+      response_jobs: 'responseJobs',
       greeting: 'option',
     },
     autoResponses: {
@@ -188,6 +202,7 @@ exports.handle = (client) => {
       reponseNumber: [reponseNumber],
       checkMail: [checkMail],
       callBackEnd: [callBackEnd],
+      responseJobs: [responseJobs],
       option: [option],
     },
   })
