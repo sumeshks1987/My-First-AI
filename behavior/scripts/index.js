@@ -34,6 +34,8 @@ exports.handle = (client) => {
         client.addTextResponse('Find more details over here https://envigo.digital/careers')
       } else {
       	client.updateConversationState('option','about us')
+        client.addTextResponse('our energy & vigour come from a great team and a culture of constant learning. the fire has been burning since 2008')
+        client.addTextResponse('Find out more over here https://envigo.digital/about')
       }
       client.done()
     }
