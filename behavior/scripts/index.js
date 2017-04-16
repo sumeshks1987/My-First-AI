@@ -29,7 +29,7 @@ exports.handle = (client) => {
       	client.addTextResponse('We are glad to hear that. Please share your website url for the same.')
       } else if(option3){
       	client.updateConversationState('option','jobs')
-        client.addTextResponse('envigo is a great place to work, we are on the lookout for new talent, take a look at our current vacancies.')
+        client.addTextResponse('envigo is a great place to work. we are on the lookout for new talent. take a look at our current vacancies.')
         client.addTextResponse('Front end developer | Adobe experience manager developer | Account director (Digital)')
         client.addTextResponse('Find more details over here https://envigo.digital/careers')
       } else {
