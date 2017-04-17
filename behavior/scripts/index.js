@@ -64,7 +64,7 @@ exports.handle = (client) => {
       if(website){
         console.log('Correct')
       } else {
-        console.log(client.getFirstEntityWithRole(client.getMessagePart(), 'email_id'))
+        website = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id')
       }
       client.updateConversationState('website', website.value)
       client.addTextResponse('Thanks for providing the URL. Please provide us your email ID to which we can send the details of the audit.')
