@@ -61,7 +61,7 @@ exports.handle = (client) => {
 
     prompt() {
       const website = client.getFirstEntityWithRole(client.getMessagePart(), 'url/website')
-      console.log("Website")
+      console.log(client.getMessagePart())
       client.updateConversationState('website', website.value)
       client.addTextResponse('Thanks for providing the URL. Please provide us your email ID to which we can send the details of the audit.')
       //client.addResponse('request_email')
