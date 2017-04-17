@@ -60,11 +60,11 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      const website = client.getFirstEntityWithRole(client.getMessagePart(), 'url/website')
+      let website = client.getFirstEntityWithRole(client.getMessagePart(), 'url/website')
       if(website){
         //Nothing
       } else {
-        const website = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id)
+        let website = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id)
       }
       console.log(website)
       client.updateConversationState('website', website.value)
