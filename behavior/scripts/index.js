@@ -61,7 +61,9 @@ exports.handle = (client) => {
 
     prompt() {
       const website = client.getFirstEntityWithRole(client.getMessagePart(), 'url/website')
-      if(!website){
+      if(website){
+        //Nothing
+      } else {
         const website = client.getFirstEntityWithRole(client.getMessagePart(), 'email_id)
       }
       console.log(website)
